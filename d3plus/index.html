@@ -1,0 +1,35 @@
+<!doctype html>
+<meta charset="utf-8">
+Stacked Area Chart
+<!-- load D3js -->
+<script src="//d3plus.org/js/d3.js"></script>
+
+<!-- load D3plus after D3js -->
+<script src="//d3plus.org/js/d3plus.js"></script>
+
+<!-- create container element for visualization -->
+<div id="viz"></div>
+
+<script>
+  // sample data array
+  var sample_data = "https://raw.githubusercontent.com/aaizemberg/vis/gh-pages/graduados/data.tsv"
+  // instantiate d3plus
+  //colación	año	fecha	titulo	cant
+  var visualization = d3plus.viz()
+    .container("#viz")  // container DIV to hold the visualization
+    .data(sample_data)  // data to use with the visualization
+    .type("stacked")    // visualization type
+    .id("titulo")         // key for which our data is unique on
+    .text("titulo")       // key to use for display text
+    .y("cant")         // key to use for y-axis
+    .x("año")          // key to use for x-axis
+    .time("año")       // key to use for time
+    .draw()             // finally, draw the visualization!
+  
+  .shape({
+      "interpolate": "basis"  // takes accepted values to change interpolation type
+    })
+</script>
+
+LICENSE
+#This block appears to have no license. Please contact the author to request a license.
